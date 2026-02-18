@@ -1,34 +1,8 @@
 ---
-const phases = [
-    {
-        step: "01",
-        title: "Deep AI Audit",
-        desc: "We run a comprehensive AI-powered analysis of your digital presence, competitors, keyword landscape, and untapped opportunities. No guesswork — only data.",
-        badge: "Powered by Semrush + Ahrefs + DeepSeek",
-    },
-    {
-        step: "02",
-        title: "Custom Ecosystem Design",
-        desc: "We design your personalized 360° marketing ecosystem — selecting the right AI tools, platforms, and strategies calibrated to your industry, goals, and competitive landscape.",
-        badge: "20+ Years of Strategic Expertise",
-    },
-    {
-        step: "03",
-        title: "Intelligent Activation",
-        desc: "We launch your campaigns, systems, and automations across all channels simultaneously. AI agents work 24/7 while our human strategists guide the direction.",
-        badge: "Make.com + n8n + Zapier Automations",
-    },
-    {
-        step: "04",
-        title: "Continuous AI Learning",
-        desc: "Every data point feeds back into the system. Your ecosystem gets smarter every week — improving performance, reducing waste, and uncovering new growth opportunities.",
-        badge: "Real-Time AI Performance Intelligence",
-    },
-];
 ---
 
 <section id="methodology" class="py-24 bg-black relative">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 max-w-7xl">
         <div class="mb-20 text-center">
             <span
                 class="text-accent text-sm font-mono tracking-widest uppercase block mb-4"
@@ -40,33 +14,120 @@ const phases = [
             </h2>
         </div>
 
-        <div class="relative grid md:grid-cols-4 gap-8">
-            <!-- Connection Line (Desktop) -->
+        <div class="relative">
+            <!-- Connecting Line -->
             <div
-                class="hidden md:block absolute top-[28px] left-0 w-full h-[1px] bg-white/10 z-0"
+                class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-accent/30 to-transparent"
             >
             </div>
 
-            {
-                phases.map((phase, index) => (
-                    <div class="relative z-10 group">
-                        <div class="w-14 h-14 rounded-full bg-black border border-white/20 text-white font-mono flex items-center justify-center text-xl mb-8 group-hover:border-accent group-hover:text-accent transition-colors shadow-[0_0_20px_-5px_bg-black]">
-                            {phase.step}
-                        </div>
-
-                        <h3 class="text-xl font-bold text-white font-display mb-4">
-                            {phase.title}
+            <div class="space-y-16">
+                <!-- Phase 1 -->
+                <div
+                    class="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group"
+                >
+                    <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                        <h3 class="text-2xl font-bold text-white mb-2">
+                            Phase 1: Diagnose & Blueprint
                         </h3>
-                        <p class="text-muted-foreground mb-6 text-sm leading-relaxed min-h-[80px]">
-                            {phase.desc}
+                        <p class="text-muted-foreground">
+                            We audit your entire digital footprint using AI to
+                            identify gaps, SEO opportunities, and wasted ad
+                            spend.
                         </p>
-
-                        <div class="inline-block px-3 py-1 rounded bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/50 group-hover:text-accent group-hover:bg-accent/5 group-hover:border-accent/10 transition-colors">
-                            {phase.badge}
-                        </div>
                     </div>
-                ))
-            }
+                    <div
+                        class="relative z-10 w-10 h-10 rounded-full bg-black border-2 border-accent flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.5)] order-1 md:order-2"
+                    >
+                        <span class="text-accent font-mono font-bold">1</span>
+                    </div>
+                    <div class="md:w-1/2 order-3">
+                        <span
+                            class="inline-block px-3 py-1 bg-white/5 rounded text-xs text-white/50 border border-white/5"
+                            >Deliverable: Growth Roadmap</span
+                        >
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div
+                    class="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group"
+                >
+                    <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                        <span
+                            class="inline-block px-3 py-1 bg-white/5 rounded text-xs text-white/50 border border-white/5"
+                            >Deliverable: Core Infrastructure</span
+                        >
+                    </div>
+                    <div
+                        class="relative z-10 w-10 h-10 rounded-full bg-black border-2 border-accent flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.5)] order-1 md:order-2"
+                    >
+                        <span class="text-accent font-mono font-bold">2</span>
+                    </div>
+                    <div class="md:w-1/2 order-3">
+                        <h3 class="text-2xl font-bold text-white mb-2">
+                            Phase 2: Architect & Build
+                        </h3>
+                        <p class="text-muted-foreground">
+                            We deploy the "hub and spoke" system: smart website
+                            capabilities, tracking pixels, and content
+                            pipelines.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div
+                    class="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group"
+                >
+                    <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                        <h3 class="text-2xl font-bold text-white mb-2">
+                            Phase 3: Deploy & Amplify
+                        </h3>
+                        <p class="text-muted-foreground">
+                            We launch high-velocity content, paid campaigns, and
+                            automated outreach simultaneously.
+                        </p>
+                    </div>
+                    <div
+                        class="relative z-10 w-10 h-10 rounded-full bg-black border-2 border-accent flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.5)] order-1 md:order-2"
+                    >
+                        <span class="text-accent font-mono font-bold">3</span>
+                    </div>
+                    <div class="md:w-1/2 order-3">
+                        <span
+                            class="inline-block px-3 py-1 bg-white/5 rounded text-xs text-white/50 border border-white/5"
+                            >Deliverable: Live Campaigns</span
+                        >
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div
+                    class="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 group"
+                >
+                    <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                        <span
+                            class="inline-block px-3 py-1 bg-white/5 rounded text-xs text-white/50 border border-white/5"
+                            >Deliverable: Monthly Report</span
+                        >
+                    </div>
+                    <div
+                        class="relative z-10 w-10 h-10 rounded-full bg-black border-2 border-accent flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.5)] order-1 md:order-2"
+                    >
+                        <span class="text-accent font-mono font-bold">4</span>
+                    </div>
+                    <div class="md:w-1/2 order-3">
+                        <h3 class="text-2xl font-bold text-white mb-2">
+                            Phase 4: Optimization & Scale
+                        </h3>
+                        <p class="text-muted-foreground">
+                            AI agents monitor performance 24/7, reallocating
+                            budget to top performers and cutting waste.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

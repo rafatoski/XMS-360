@@ -1,65 +1,185 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=DM+Sans:opsz,wght@9..40,300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
+@import "tailwindcss";
+@config "../../tailwind.config.js";
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 44 57% 54%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 44 57% 54%;
-    --radius: 0.5rem;
+@theme {
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Playfair Display', serif;
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-slide-up: slide-up 0.5s ease-out forwards;
+  --animate-pulse-glow: pulse-glow 3s infinite;
+  --animate-orbit: orbit 60s linear infinite;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      height: var(--radix-accordion-content-height);
+    }
   }
 
-  .dark {
-    /* Main Background: Deep Black #0A0A0A */
-    --background: 0 0% 4%;
-    /* Main Text: Off-White #F5F0E8 */
-    --foreground: 38 33% 94%;
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
 
-    /* Card Background: Slightly lighter black/gray */
-    --card: 0 0% 6%;
-    --card-foreground: 38 33% 94%;
-
-    --popover: 0 0% 4%;
-    --popover-foreground: 38 33% 94%;
-
-    /* Primary: Gold #C9A84C */
-    --primary: 44 57% 54%;
-    --primary-foreground: 0 0% 4%;
-
-    /* Secondary: Dark Gray */
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-
-    /* Accent: Gold variation */
-    --accent: 44 57% 54%;
-    --accent-foreground: 0 0% 4%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 44 57% 54%;
+    to {
+      height: 0;
+    }
   }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.5);
+    }
+
+    50% {
+      box-shadow: 0 0 40px -5px hsl(var(--accent) / 0.8);
+    }
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+/*
+  We still define the base variables in standard CSS, usually :root or @layer base.
+  In v4, we can just put them in :root directly.
+*/
+
+:root {
+  /* Blue Theme Base */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  /* Primary: Electric Blue #3B82F6 (HSL 221 83% 53%) */
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  /* Accent: Vibrant lighter blue for glows */
+  --accent: 217 91% 60%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221 83% 53%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Main Background: Deep Black #0A0A0A */
+  --background: 222 47% 4%;
+  /* Main Text: Off-White #F8FAFC */
+  --foreground: 210 40% 98%;
+
+  /* Card Background: Darker Blue/Gray tint */
+  --card: 222 47% 6%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 47% 4%;
+  --popover-foreground: 210 40% 98%;
+
+  /* Primary: Electric Blue #3B82F6 */
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+
+  /* Secondary: Darker Slate */
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  /* Accent: Vibrant Blue #60A5FA */
+  --accent: 217 91% 60%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 221 83% 53%;
 }
 
 @layer base {
@@ -67,40 +187,30 @@
     border-color: hsl(var(--border));
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'DM Sans', sans-serif;
-    -webkit-font-smoothing: antialiased;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 @layer utilities {
-  .text-gradient-gold {
-    background: linear-gradient(to right, #F5F0E8, #C9A84C);
+  .text-gradient-blue {
+    background: linear-gradient(to right, #60A5FA, #3B82F6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .glass-card {
-    @apply bg-black/40 backdrop-blur-md border border-white/5;
+    background-color: rgb(0 0 0 / 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(255 255 255 / 0.05);
   }
 
-  .gold-glow {
+  .blue-glow {
     box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.3);
   }
 }

@@ -5,13 +5,12 @@ import { Button } from './ui/button';
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10);
+            setIsScrolled(window.scrollY > 20);
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -24,72 +23,70 @@ export default function Header() {
     ];
 
     return (
-        <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? 'bg-black/80 backdrop-blur-md border-b border-white/5 py-4'
-                    : 'bg-transparent py-6'
+        <motion.header
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'
                 }`}
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-                <a href="/" className="text-2xl font-bold tracking-tighter text-white font-display">
-                    XMS <span className="text-accent">AI</span>
+                <a href="/" className="flex items-center gap-2">
+                    {/* LOGO REPLACEMENT */}
+                    <img src="/brand/XMS LOGO - BLACK BACKGROUND.webp" alt="XMS AI Logo" className="h-10 w-auto" />
                 </a>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center space-x-8">
+                {/* Desktop Nav */}
+                <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-white/80 hover:text-accent transition-colors duration-200"
+                            className="text-sm font-medium text-white/70 hover:text-accent transition-colors"
                         >
                             {link.name}
                         </a>
                     ))}
+                    <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">
+                        Get Free Audit
+                    </Button>
                 </nav>
 
-                <div className="hidden md:flex items-center">
-                    <a href="#audit" className="bg-white/10 hover:bg-white/20 text-white px-6 py-2 rounded-full text-sm font-medium transition-all backdrop-blur-sm border border-white/10 hover:border-accent/50 flex items-center gap-2 group">
-                        Get Free Audit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                </div>
-
-                {/* Mobile Menu Button */}
+                {/* Mobile Menu Toggle */}
                 <button
                     className="md:hidden text-white"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
-                    {mobileMenuOpen ? <X /> : <Menu />}
+                    {isMobileMenuOpen ? <X /> : <Menu />}
                 </button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay */}
             <AnimatePresence>
-                {mobileMenuOpen && (
+                {isMobileMenuOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
+                        animate={{ opacity: 1, height: '100vh' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 overflow-hidden absolute top-full left-0 right-0 w-full"
+                        className="fixed inset-0 bg-black z-40 pt-24 px-4 md:hidden"
                     >
-                        <div className="flex flex-col p-6 space-y-6 items-center">
+                        <div className="flex flex-col gap-6 text-center">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="text-xl font-medium text-white/90 hover:text-accent"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="text-2xl font-display font-bold text-white hover:text-accent"
                                 >
                                     {link.name}
                                 </a>
                             ))}
-                            <a href="#audit" onClick={() => setMobileMenuOpen(false)} className="bg-accent text-black px-8 py-3 rounded-full text-center font-medium w-full">
+                            <Button className="bg-accent text-white hover:bg-accent/90 w-full mt-4 py-6 text-lg">
                                 Get Free Audit
-                            </a>
+                            </Button>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </header>
+        </motion.header>
     );
 }

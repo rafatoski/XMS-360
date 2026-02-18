@@ -1,8 +1,11 @@
-import type { Config } from 'tailwindcss';
+import animate from "tailwindcss-animate";
 
+/** @type {import('tailwindcss').Config} */
 export default {
-    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-    darkMode: 'class',
+    darkMode: ["class"],
+    content: [
+        "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    ],
     theme: {
         extend: {
             fontFamily: {
@@ -80,12 +83,12 @@ export default {
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
-                'fade-in': 'fade-in 0.5s ease-out',
-                'slide-up': 'slide-up 0.5s ease-out',
+                'fade-in': 'fade-in 0.5s ease-out forwards',
+                'slide-up': 'slide-up 0.5s ease-out forwards',
                 'pulse-glow': 'pulse-glow 3s infinite',
                 'orbit': 'orbit 60s linear infinite',
             },
         },
     },
-    plugins: [],
-} satisfies Config;
+    plugins: [animate],
+};
