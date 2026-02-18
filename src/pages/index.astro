@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import VideoSection from "../components/VideoSection.astro";
 import PainPoints from "../components/PainPoints.astro";
 import Ecosystem from "../components/Ecosystem";
 import Methodology from "../components/Methodology.astro";
@@ -59,6 +60,7 @@ const ogImage = `${siteUrl}/og-image.png`;
 
     <main>
       <Hero client:load />
+      <VideoSection />
       <PainPoints />
       <Ecosystem client:visible />
       <Methodology />
