@@ -16,10 +16,10 @@ export default function Header() {
     }, []);
 
     const navLinks = [
-        { name: 'Methodology', href: '#methodology' },
-        { name: 'Ecosystem', href: '#ecosystem' },
         { name: 'Tools', href: '#tools' },
+        { name: 'Results', href: '#testimonials' },
         { name: 'Industries', href: '#industries' },
+        { name: 'FAQ', href: '#faq' },
     ];
 
     return (
@@ -32,21 +32,20 @@ export default function Header() {
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 <a href="/" className="flex items-center gap-2">
                     {/* LOGO REPLACEMENT */}
-                    <img src="/brand/XMS LOGO - BLACK BACKGROUND.webp" alt="XMS AI Logo" className="h-10 w-auto" />
+                    <img src="/brand/XMS LOGO - BLACK BACKGROUND.webp" alt="XMS AI Logo" className="h-14 w-auto" />
                 </a>
 
-                {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-white/70 hover:text-accent transition-colors"
+                            className="text-sm font-medium text-white/70 hover:text-blue-400 transition-colors"
                         >
                             {link.name}
                         </a>
                     ))}
-                    <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">
+                    <Button className="bg-blue-600 text-white hover:bg-blue-500 rounded-full px-6 transition-all shadow-[0_0_15px_-5px_rgba(59,130,246,0.4)]">
                         Get Free Audit
                     </Button>
                 </nav>
@@ -75,12 +74,12 @@ export default function Header() {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-2xl font-display font-bold text-white hover:text-accent"
+                                    className="text-2xl font-display font-bold text-white hover:text-blue-400"
                                 >
                                     {link.name}
                                 </a>
                             ))}
-                            <Button className="bg-accent text-white hover:bg-accent/90 w-full mt-4 py-6 text-lg">
+                            <Button className="bg-blue-600 text-white hover:bg-blue-500 w-full mt-4 py-6 text-lg rounded-xl">
                                 Get Free Audit
                             </Button>
                         </div>

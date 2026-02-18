@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
@@ -15,7 +15,7 @@ export default function Hero() {
         let height = canvas.height = window.innerHeight;
 
         const particles: Particle[] = [];
-        const particleCount = 60; // Slightly reduced for cleaner look
+        const particleCount = 70;
         const connectionDistance = 150;
 
         class Particle {
@@ -43,8 +43,8 @@ export default function Hero() {
 
             draw() {
                 if (!ctx) return;
-                // CHANGED TO BLUE
-                ctx.fillStyle = 'rgba(59, 130, 246, 0.5)';
+                // GOLD PARTICLES
+                ctx.fillStyle = 'rgba(201, 168, 76, 0.5)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -58,8 +58,8 @@ export default function Hero() {
         const animate = () => {
             ctx.clearRect(0, 0, width, height);
 
-            // Draw connections - CHANGED TO BLUE
-            ctx.strokeStyle = 'rgba(59, 130, 246, 0.1)';
+            // GOLD CONNECTIONS
+            ctx.strokeStyle = 'rgba(201, 168, 76, 0.1)';
             ctx.lineWidth = 0.5;
 
             for (let i = 0; i < particles.length; i++) {
@@ -104,8 +104,11 @@ export default function Hero() {
                 className="absolute inset-0 z-0 pointer-events-none opacity-40"
             />
 
-            {/* Radial Gradient Overlay for Depth */}
-            <div className="absolute inset-0 bg-radial-gradient from-transparent to-background z-0 pointer-events-none" />
+            {/* Subtle Dot Grid Background */}
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:20px_20px] opacity-20 pointer-events-none"></div>
+
+            {/* Gold Radial Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[rgba(201,168,76,0.15)] blur-[120px] rounded-full pointer-events-none"></div>
 
             {/* Containerized Content */}
             <div className="container mx-auto px-4 z-10 relative flex flex-col items-center text-center max-w-7xl">
@@ -114,50 +117,59 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 backdrop-blur-sm"
+                    className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(201,168,76,0.3)] bg-[rgba(201,168,76,0.1)] backdrop-blur-sm"
                 >
-                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse-glow" />
-                    <span className="text-xs font-mono text-blue-400 tracking-widest uppercase">AI-Powered 360° Marketing Ecosystem</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                    <span className="text-xs font-mono text-white tracking-widest uppercase">AI-POWERED 360° MARKETING ECOSYSTEM</span>
                 </motion.div>
 
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white max-w-5xl mx-auto"
+                    className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white max-w-6xl mx-auto"
                 >
-                    Your Competitors Are Still Doing It Manually. <br />
-                    <span className="text-white/40 italic font-serif">You Don't Have To.</span>
+                    Your Competitors Are <br /> Still Doing It Manually. <br />
+                    <span className="text-gradient-gold italic">You Don't Have To.</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
-                    className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed"
+                    className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed font-sans"
                 >
                     XMS AI combines 20+ years of battle-tested marketing expertise
-                    with the world's most powerful AI tools to scale your brand, automate growth,
-                    and make you visible everywhere.
+                    with the world's most powerful AI tools — delivering a unified
+                    360° ecosystem that scales your brand, automates your growth,
+                    and makes you visible where it matters most.
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
-                    className="flex flex-col sm:flex-row items-center gap-4"
+                    className="flex flex-col sm:flex-row items-center gap-6"
                 >
-                    <a href="#audit" className="group relative px-8 py-4 bg-accent text-white font-bold text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_-5px_hsl(var(--accent)/0.5)]">
+                    <a href="#audit" className="group relative px-8 py-4 bg-accent text-black font-bold text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_-5px_hsl(var(--accent)/0.5)]">
                         <span className="relative z-10 flex items-center gap-2">
                             Activate Your AI Ecosystem
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </span>
-                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                     </a>
 
-                    <a href="#ecosystem" className="text-white/70 hover:text-white font-medium flex items-center gap-2 transition-colors px-6 py-4">
+                    <a href="#ecosystem" className="text-white/70 hover:text-accent font-medium flex items-center gap-2 transition-colors px-6 py-4">
                         Explore the 360° Framework <ChevronDown className="w-4 h-4 animate-bounce" />
                     </a>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 1 }}
+                    className="mt-12 text-sm text-white/40 font-mono tracking-wide"
+                >
+                    Trusted by 1,100+ local businesses across the USA | 20+ years of proven results
                 </motion.div>
             </div>
         </section>

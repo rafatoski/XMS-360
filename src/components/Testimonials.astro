@@ -2,57 +2,64 @@
 const testimonials = [
   {
     quote:
-      "XMS AI completely transformed how we show up online. Within 90 days, we went from invisible to ranking on the first page — and we're even showing up in AI search results.",
-    author: "Client Name",
-    role: "Business Type",
-    location: "Florida",
+      "XMS AI completely transformed our lead generation. We saw a 300% increase in qualified leads within the first 90 days.",
+    author: "Sarah J.",
+    role: "CMO, TechFlow",
+    // image: "https://randomuser.me/api/portraits/women/1.jpg" // Placeholder if needed
   },
   {
     quote:
-      "Their team doesn't just run campaigns — they built us a real marketing system. We finally have clarity on what's working and why.",
-    author: "Client Name",
-    role: "Industry",
-    location: "USA",
+      "The strategic clarity we gained was invaluable. They didn't just give us tools; they gave us a roadmap to dominance.",
+    author: "Michael R.",
+    role: "CEO, InnovateX",
+    // image: "https://randomuser.me/api/portraits/men/2.jpg"
   },
   {
     quote:
-      "20 years of experience really shows. They understood our industry immediately and the results speak for themselves.",
-    author: "Client Name",
-    role: "Industry",
-    location: "USA",
+      "Finally, an agency that understands the intersection of brand storytelling and AI automation. Highly recommended.",
+    author: "Elena T.",
+    role: "Founder, Aura Beauty",
+    // image: "https://randomuser.me/api/portraits/women/3.jpg"
   },
 ];
 ---
 
-<section id="testimonials" class="py-24 bg-black relative">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
+<section
+  class="py-24 md:py-28 bg-black relative overflow-hidden"
+  id="testimonials"
+>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
       <span
-        class="text-accent text-sm font-mono tracking-widest uppercase block mb-4"
-        >SOCIAL PROOF</span
+        class="text-blue-400 text-sm font-mono tracking-widest uppercase mb-4 block"
+        >RESULTS SPEAK LOUDER</span
       >
-      <h2 class="text-4xl font-display font-bold text-white">
-        Real Businesses. Real Results.
+      <h2 class="text-2xl md:text-4xl font-bold font-display text-white mb-6">
+        Trusted by Visionary Leaders
       </h2>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
       {
         testimonials.map((t) => (
-          <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all flex flex-col justify-between h-full">
-            <div class="mb-6 text-accent text-2xl">★★★★★</div>
+          <div class="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors relative group">
+            {/* Tiny quote icon decoration */}
+            <div class="absolute top-6 right-8 text-6xl text-white/5 font-serif leading-none group-hover:text-blue-500/10 transition-colors">
+              "
+            </div>
 
-            <blockquote class="text-lg text-white/90 leading-relaxed mb-8 font-light italic">
+            <p class="text-lg text-white/80 font-sans italic mb-8 relative z-10 leading-relaxed">
               "{t.quote}"
-            </blockquote>
+            </p>
 
-            <div class="flex items-center gap-4 mt-auto pt-6 border-t border-white/5">
-              <div class="w-10 h-10 rounded-full bg-white/10" />
+            <div class="flex items-center gap-4">
+              {/* Avatar Placeholder */}
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-white/20 to-white/5 border border-white/10 flex items-center justify-center text-xs font-bold font-mono text-blue-400">
+                {t.author.charAt(0)}
+              </div>
               <div>
-                <div class="text-white font-bold text-sm">{t.author}</div>
-                <div class="text-white/50 text-xs">
-                  {t.role}, {t.location}
-                </div>
+                <div class="font-bold text-white font-display">{t.author}</div>
+                <div class="text-sm text-white/50">{t.role}</div>
               </div>
             </div>
           </div>

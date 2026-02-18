@@ -1,7 +1,7 @@
-import animate from "tailwindcss-animate";
+// const animate = require("tailwindcss-animate");
 
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
     darkMode: ["class"],
     content: [
         "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
@@ -10,9 +10,9 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['DM Sans', 'sans-serif'],
-                serif: ['Cormorant Garamond', 'serif'],
+                serif: ['Syne', 'sans-serif'],
                 mono: ['JetBrains Mono', 'monospace'],
-                display: ['Playfair Display', 'serif'],
+                display: ['Syne', 'sans-serif'],
             },
             colors: {
                 border: 'hsl(var(--border))',
@@ -35,6 +35,19 @@ export default {
                 muted: {
                     DEFAULT: 'hsl(var(--muted))',
                     foreground: 'hsl(var(--muted-foreground))',
+                },
+                blue: {
+                    50: "#eff6ff",
+                    100: "#dbeafe",
+                    200: "#bfdbfe",
+                    300: "#93c5fd",
+                    400: "#60a5fa",
+                    500: "#3b82f6",
+                    600: "#2563eb",
+                    700: "#1d4ed8",
+                    800: "#1e40af",
+                    900: "#1e3a8a",
+                    950: "#172554",
                 },
                 accent: {
                     DEFAULT: 'hsl(var(--accent))',
@@ -90,5 +103,5 @@ export default {
             },
         },
     },
-    plugins: [animate],
+    plugins: [],
 };

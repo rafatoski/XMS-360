@@ -1,12 +1,15 @@
+/* Import Google Fonts - Syne (Headlines), DM Sans (Body), JetBrains Mono (Tech) */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap');
+
 @import "tailwindcss";
-@import "tailwindcss";
-@config "../../tailwind.config.js";
+@config "../../tailwind.config.cjs";
 
 @theme {
   --font-sans: 'DM Sans', sans-serif;
-  --font-serif: 'Cormorant Garamond', serif;
+  --font-serif: 'Syne', sans-serif;
+  /* Using Syne as our 'serif' / headline font replacement */
   --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Playfair Display', serif;
+  --font-display: 'Syne', sans-serif;
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -111,85 +114,88 @@
   }
 }
 
-/*
-  We still define the base variables in standard CSS, usually :root or @layer base.
-  In v4, we can just put them in :root directly.
-*/
-
 :root {
-  /* Blue Theme Base */
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  /* GALAXY GOLD THEME */
 
-  /* Primary: Electric Blue #3B82F6 (HSL 221 83% 53%) */
-  --primary: 221 83% 53%;
-  --primary-foreground: 210 40% 98%;
+  /* Background Base: Deep Space Blue #080B14 */
+  --background: 225 43% 5%;
+  /* Text: White #F8F9FA */
+  --foreground: 210 17% 98%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  /* Card BG: Slightly lighter #0E1220 */
+  --card: 226 39% 9%;
+  --card-foreground: 210 17% 98%;
 
-  /* Accent: Vibrant lighter blue for glows */
+  --popover: 226 39% 9%;
+  --popover-foreground: 210 17% 98%;
+
+  /* Primary/Accent: Blue #3B82F6 (HSL 217 91% 60%) */
+  --primary: 217 91% 60%;
+  --primary-foreground: 225 43% 5%;
+
+  --secondary: 225 25% 15%;
+  --secondary-foreground: 210 17% 98%;
+
+  --muted: 225 25% 15%;
+  --muted-foreground: 215 16% 65%;
+  /* Soft gray for body copy */
+
   --accent: 217 91% 60%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221 83% 53%;
-  --radius: 0.5rem;
-}
-
-.dark {
-  /* Main Background: Deep Black #0A0A0A */
-  --background: 222 47% 4%;
-  /* Main Text: Off-White #F8FAFC */
-  --foreground: 210 40% 98%;
-
-  /* Card Background: Darker Blue/Gray tint */
-  --card: 222 47% 6%;
-  --card-foreground: 210 40% 98%;
-
-  --popover: 222 47% 4%;
-  --popover-foreground: 210 40% 98%;
-
-  /* Primary: Electric Blue #3B82F6 */
-  --primary: 221 83% 53%;
-  --primary-foreground: 210 40% 98%;
-
-  /* Secondary: Darker Slate */
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-
-  /* Accent: Vibrant Blue #60A5FA */
-  --accent: 217 91% 60%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --accent-foreground: 225 43% 5%;
 
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 221 83% 53%;
+  --border: 217 91% 60%;
+  /* Using Blue for borders but opacity usually handled in utility */
+  --input: 225 25% 15%;
+  --ring: 217 91% 60%;
+
+  --radius: 0.5rem;
+}
+
+/* Force Dark Mode always since "NO white sections" */
+.dark {
+  --background: 225 43% 5%;
+  --foreground: 210 17% 98%;
+  --card: 226 39% 9%;
+  --card-foreground: 210 17% 98%;
+  --popover: 226 39% 9%;
+  --popover-foreground: 210 17% 98%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 225 43% 5%;
+  --secondary: 225 25% 15%;
+  --secondary-foreground: 210 17% 98%;
+  --muted: 225 25% 15%;
+  --muted-foreground: 215 16% 65%;
+  --accent: 217 91% 60%;
+  --accent-foreground: 225 43% 5%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217 91% 60%;
+  --input: 225 25% 15%;
+  --ring: 217 91% 60%;
 }
 
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    border-color: rgba(59, 130, 246, 0.2);
+    /* Subtle Blue Border */
   }
 
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Syne', sans-serif;
   }
 
   html {
@@ -199,18 +205,22 @@
 
 @layer utilities {
   .text-gradient-blue {
-    background: linear-gradient(to right, #60A5FA, #3B82F6);
+    background: linear-gradient(to right, #F8F9FA, #3B82F6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .glass-card {
-    background-color: rgb(0 0 0 / 0.4);
+    background-color: rgba(14, 18, 32, 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid rgb(255 255 255 / 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
   }
 
   .blue-glow {
-    box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.3);
+    box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.35);
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }
