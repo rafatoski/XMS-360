@@ -1,0 +1,119 @@
+---
+import AnimatedSection from "./AnimatedSection";
+
+const steps = [
+  {
+    number: "01",
+    title: "Discover",
+    description:
+      "Comprehensive audit of your current marketing, competitive landscape, and opportunities.",
+  },
+  {
+    number: "02",
+    title: "Build Knowledge Base",
+    description:
+      "Structure your business data with AI: services, audience, goals, brand voice, and insights.",
+  },
+  {
+    number: "03",
+    title: "Deploy",
+    description:
+      "Launch campaigns, optimize SEO, create content, build web assets—all coordinated.",
+  },
+  {
+    number: "04",
+    title: "Automate",
+    description:
+      "Implement AI agents and workflows to handle repetitive tasks and scale your efforts.",
+  },
+  {
+    number: "05",
+    title: "Optimize",
+    description:
+      "Weekly reporting, data analysis, and continuous iteration to maximize ROI.",
+  },
+];
+---
+
+<section
+  id="ecosystem"
+  class="py-24 md:py-32 bg-[#020617] relative overflow-hidden"
+>
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 max-w-6xl relative z-10">
+    <AnimatedSection client:visible>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-6">
+          The <span
+            class="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent"
+            >360° Ecosystem</span
+          >
+        </h2>
+        <p class="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto">
+          A proven, AI-powered process that connects every aspect of your
+          marketing journey.
+        </p>
+      </div>
+    </AnimatedSection>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="grid gap-8 relative">
+        {/* Connecting Line (for desktop) */}
+        <div
+          class="absolute left-10 top-10 bottom-10 w-px bg-gradient-to-b from-primary/50 via-primary/10 to-transparent hidden md:block"
+        >
+        </div>
+
+        {
+          steps.map((step, index) => (
+            <AnimatedSection client:visible delay={index * 0.1}>
+              <div class="glass-card group p-1 hover:border-primary/50 transition-all duration-500">
+                <div class="p-8">
+                  <div class="flex gap-8 items-start">
+                    {/* Step Number */}
+                    <div class="flex-shrink-0 w-20 h-20 rounded-2xl bg-[#020617] border border-primary/20 flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_15px_-5px_rgba(59,130,246,0.3)]">
+                      <span class="text-3xl font-black text-white">
+                        {step.number}
+                      </span>
+                      <div class="absolute -inset-1 bg-primary/10 blur-lg -z-10 group-hover:bg-primary/20 transition-colors" />
+                    </div>
+
+                    {/* Step Content */}
+                    <div class="flex-1 pt-2">
+                      <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                        {step.title}
+                      </h3>
+                      <p class="text-slate-400 text-lg leading-relaxed font-medium">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))
+        }
+      </div>
+
+      {/* Visual Flow Indicator */}
+      <AnimatedSection client:visible delay={0.6}>
+        <div
+          class="mt-16 p-10 rounded-3xl bg-primary/5 border border-primary/10 text-center glass"
+        >
+          <p class="text-xl text-slate-300 leading-relaxed font-semibold">
+            <span
+              class="text-primary uppercase tracking-widest text-sm block mb-2"
+              >Infinite Loop</span
+            >
+            After optimization, we cycle back to discovery, identifying new opportunities
+            and refining strategies based on real data.
+          </p>
+        </div>
+      </AnimatedSection>
+    </div>
+  </div>
+</section>

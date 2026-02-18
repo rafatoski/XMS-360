@@ -1,17 +1,127 @@
 ---
+import "../styles/global.css";
+import Header from "../components/Header";
+import Hero from "../components/Hero.astro";
+import TrustBar from "../components/TrustBar.astro";
+import BentoFeatures from "../components/BentoFeatures.astro";
+import Ecosystem from "../components/Ecosystem.astro";
+import Testimonials from "../components/Testimonials.astro";
+import FAQ from "../components/FAQ";
+import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer.astro";
 
+const siteUrl = "https://xperienceaimarketing.com";
+const pageTitle =
+  "XMS-AI | AI-Powered 360° Marketing for Treasure Coast Businesses";
+const pageDescription =
+  "20+ years of marketing expertise amplified with AI agents, automation, and data-driven decisions. Local SEO, paid ads, social media, websites, and more for Treasure Coast, Florida businesses.";
+const ogImage = `${siteUrl}/og-image.png`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#localbusiness`,
+      name: "Xperience Marketing Solution AI",
+      alternateName: "XMS-AI",
+      description: pageDescription,
+      url: siteUrl,
+      telephone: "+1-772-555-0123",
+      email: "info@xperienceaimarketing.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Treasure Coast",
+        addressRegion: "FL",
+        addressCountry: "US",
+      },
+      areaServed: [
+        {
+          "@type": "City",
+          name: "Fort Pierce",
+        },
+        {
+          "@type": "City",
+          name: "Port St. Lucie",
+        },
+        {
+          "@type": "City",
+          name: "Stuart",
+        },
+        {
+          "@type": "City",
+          name: "Vero Beach",
+        },
+      ],
+      priceRange: "$$",
+      openingHours: "Mo-Fr 09:00-17:00",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Xperience Marketing Solution AI",
+      url: siteUrl,
+      logo: `${siteUrl}/logo.png`,
+      sameAs: [
+        "https://facebook.com/xmsai",
+        "https://instagram.com/xmsai",
+        "https://linkedin.com/company/xmsai",
+        "https://twitter.com/xmsai",
+      ],
+    },
+  ],
+};
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Primary Meta Tags */}
+    <title>{pageTitle}</title>
+    <meta name="title" content={pageTitle} />
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={siteUrl} />
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="XMS-AI" />
+
+    {/* Twitter */}
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={siteUrl} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={pageDescription} />
+    <meta property="twitter:image" content={ogImage} />
+
+    {/* Structured Data */}
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}
+    ></script>
+
+    {/* Preconnect to Google Fonts */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <Header client:load />
+    <main>
+      <Hero />
+      <TrustBar />
+      <BentoFeatures />
+      <Ecosystem />
+      <Testimonials />
+      <FAQ client:load />
+      <ContactForm client:load />
+    </main>
+    <Footer />
+  </body>
 </html>

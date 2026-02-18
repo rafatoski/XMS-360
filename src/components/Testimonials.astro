@@ -1,0 +1,94 @@
+---
+import { Card, CardContent } from "./ui/card";
+import AnimatedSection from "./AnimatedSection";
+
+const testimonials = [
+  {
+    quote:
+      "XMS-AI transformed our online presence. We went from invisible on Google to ranking #1 for our main services in just 3 months. The AI-powered insights are game-changing.",
+    name: "Sarah Mitchell",
+    role: "Owner",
+    business: "Treasure Coast Dental Care",
+    isPlaceholder: true,
+  },
+  {
+    quote:
+      "Finally, a marketing agency that actually understands local businesses. Their 360 approach means everything works together—our website, ads, and social media all tell the same story.",
+    name: "Carlos Rodriguez",
+    role: "Founder",
+    business: "Rodriguez HVAC Services",
+    isPlaceholder: true,
+  },
+  {
+    quote:
+      "The Knowledge Base they built for our business is incredible. Every campaign is smarter because they have all our data organized. Plus, the weekly reports are crystal clear.",
+    name: "Jennifer Thompson",
+    role: "Marketing Director",
+    business: "Coastal Home Remodeling",
+    isPlaceholder: true,
+  },
+  {
+    quote:
+      "We were skeptical about AI in marketing, but XMS-AI proved us wrong. Their team combines technology with real expertise. Our lead volume doubled in the first quarter.",
+    name: "Michael Chen",
+    role: "CEO",
+    business: "Chen Legal Group",
+    isPlaceholder: true,
+  },
+];
+---
+
+<section id="testimonials" class="py-24 md:py-32 bg-muted/30">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <AnimatedSection client:visible>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          What Our Clients Say
+        </h2>
+        <p class="text-muted-foreground text-lg md:text-xl">
+          Real results from real Treasure Coast businesses
+        </p>
+      </div>
+    </AnimatedSection>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {
+        testimonials.map((testimonial, index) => (
+          <AnimatedSection client:visible delay={index * 0.1}>
+            <Card className="hover:shadow-md hover:-translate-y-1">
+              <CardContent className="pt-6">
+                {testimonial.isPlaceholder && (
+                  <div class="mb-3">
+                    <span class="text-xs bg-muted px-2 py-1 rounded text-muted-foreground">
+                      Sample Testimonial
+                    </span>
+                  </div>
+                )}
+
+                <blockquote class="mb-6">
+                  <p class="text-muted-foreground italic leading-relaxed">
+                    "{testimonial.quote}"
+                  </p>
+                </blockquote>
+
+                <div class="border-t pt-4">
+                  <p class="font-semibold">{testimonial.name}</p>
+                  <p class="text-sm text-muted-foreground">
+                    {testimonial.role}, {testimonial.business}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+        ))
+      }
+    </div>
+
+    <div class="text-center mt-12">
+      <p class="text-sm text-muted-foreground">
+        Note: Replace sample testimonials with real client feedback before
+        launch
+      </p>
+    </div>
+  </div>
+</section>

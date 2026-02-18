@@ -1,0 +1,54 @@
+---
+const partners = [
+  "Google Partner",
+  "Meta Business",
+  "HubSpot Certified",
+  "GA4 Experts",
+  "HighLevel",
+  "OpenAI API",
+  "Anthropic",
+  "Local Legend",
+];
+---
+
+<section
+  class="py-10 bg-[#020617] border-y border-white/5 overflow-hidden select-none"
+>
+  <div class="flex whitespace-nowrap animate-scroll">
+    <div class="flex items-center gap-16 pr-16">
+      {
+        partners.map((p) => (
+          <span class="text-3xl md:text-5xl font-black text-white/10 uppercase tracking-tighter hover:text-primary transition-colors cursor-default">
+            {p}
+          </span>
+        ))
+      }
+    </div>
+    <div class="flex items-center gap-16 pr-16" aria-hidden="true">
+      {
+        partners.map((p) => (
+          <span class="text-3xl md:text-5xl font-black text-white/10 uppercase tracking-tighter hover:text-primary transition-colors cursor-default">
+            {p}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+</style>

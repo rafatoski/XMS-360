@@ -1,0 +1,132 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  { label: "Services", id: "services" },
+  { label: "Why Us", id: "why-us" },
+  { label: "Ecosystem 360", id: "ecosystem" },
+  { label: "Testimonials", id: "testimonials" },
+  { label: "FAQ", id: "faq" },
+  { label: "Contact", id: "contact" },
+];
+
+const socialLinks = [
+  { name: "Facebook", url: "#", icon: "facebook" },
+  { name: "Instagram", url: "#", icon: "instagram" },
+  { name: "LinkedIn", url: "#", icon: "linkedin" },
+  { name: "Twitter", url: "#", icon: "twitter" },
+];
+---
+
+<footer
+  class="bg-[#020617] border-t border-white/5 py-16 md:py-24 relative overflow-hidden"
+>
+  <!-- Subtle background glow -->
+  <div
+    class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-primary/5 blur-[120px] pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 max-w-7xl relative z-10">
+    <div class="grid md:grid-cols-4 gap-12 mb-16">
+      {/* Company Info */}
+      <div class="md:col-span-2">
+        <img
+          src="/brand/XMS LOGO - WHITE BACKGROUND.webp"
+          alt="XMS - Xperience AI Marketing Solutions"
+          class="h-20 w-auto mb-8 filter brightness-110"
+        />
+        <p class="text-slate-400 text-lg mb-8 leading-relaxed max-w-md">
+          Empowering Treasure Coast businesses with hyper-automated AI marketing
+          and 20+ years of local expertise.
+        </p>
+        <div class="flex gap-4">
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.url}
+                aria-label={social.name}
+                class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:scale-110 transition-all duration-300 group"
+              >
+                <span class="sr-only">{social.name}</span>
+                <span class="text-white group-hover:text-white font-black">
+                  {social.icon.charAt(0).toUpperCase()}
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      {/* Quick Links */}
+      <div>
+        <h4 class="font-bold mb-8 text-xl text-white">Navigation</h4>
+        <ul class="space-y-4">
+          {
+            footerLinks.map((link) => (
+              <li>
+                <button
+                  onclick={`document.getElementById('${link.id}')?.scrollIntoView({ behavior: 'smooth' })`}
+                  class="text-slate-400 hover:text-primary transition-colors text-base font-medium"
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      {/* Contact */}
+      <div>
+        <h4 class="font-bold mb-8 text-xl text-white">Connect</h4>
+        <div class="space-y-6">
+          <p class="text-base text-slate-400 leading-relaxed">
+            <span
+              class="block text-xs font-bold uppercase tracking-widest text-primary mb-2"
+              >Email Us</span
+            >
+            <a
+              href="mailto:info@xperienceaimarketing.com"
+              class="text-white hover:text-primary transition-colors"
+              >info@xperienceaimarketing.com</a
+            >
+          </p>
+          <p class="text-base text-slate-400 leading-relaxed">
+            <span
+              class="block text-xs font-bold uppercase tracking-widest text-primary mb-2"
+              >Call Us</span
+            >
+            <a
+              href="tel:+17725550123"
+              class="text-white hover:text-primary transition-colors font-bold text-xl"
+              >(772) 555-0123</a
+            >
+          </p>
+          <div class="pt-4 border-t border-white/5">
+            <p class="text-sm text-slate-500 italic">
+              Serving: Fort Pierce, Port St. Lucie, Stuart, Vero Beach & beyond.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom Bar */}
+    <div
+      class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6"
+    >
+      <p class="text-sm text-slate-500 font-medium">
+        © {currentYear} Xperience Marketing Solution AI (XMS-AI). All rights reserved.
+      </p>
+      <div class="flex gap-8 text-sm font-medium">
+        <a href="#" class="text-slate-500 hover:text-primary transition-colors"
+          >Privacy Policy</a
+        >
+        <a href="#" class="text-slate-500 hover:text-primary transition-colors"
+          >Terms of Service</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
