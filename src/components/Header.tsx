@@ -1,91 +1,95 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
-import { Menu, X } from 'lucide-react';
 
 export default function Header() {
+    const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    const scrollToSection = (id: string) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setMobileMenuOpen(false);
-        }
-    };
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
 
-    const navItems = [
-        { label: 'Services', id: 'services' },
-        { label: 'Why Us', id: 'why-us' },
-        { label: 'Ecosystem 360', id: 'ecosystem' },
-        { label: 'Testimonials', id: 'testimonials' },
-        { label: 'FAQ', id: 'faq' },
-        { label: 'Contact', id: 'contact' },
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const navLinks = [
+        { name: 'Methodology', href: '#methodology' },
+        { name: 'Ecosystem', href: '#ecosystem' },
+        { name: 'Tools', href: '#tools' },
+        { name: 'Industries', href: '#industries' },
     ];
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container mx-auto flex h-16 items-center justify-between px-4">
-                {/* Logo */}
-                <button
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="hover:opacity-80 transition-opacity"
-                >
-                    <img
-                        src="/brand/XMS LOGO - WHITE BACKGROUND.webp"
-                        alt="XMS - Xperience AI Marketing Solutions"
-                        className="h-12 w-auto"
-                    />
-                </button>
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+                    ? 'bg-black/80 backdrop-blur-md border-b border-white/5 py-4'
+                    : 'bg-transparent py-6'
+                }`}
+        >
+            <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+                <a href="/" className="text-2xl font-bold tracking-tighter text-white font-display">
+                    XMS <span className="text-accent">AI</span>
+                </a>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-6">
-                    {navItems.map((item) => (
-                        <button
-                            key={item.id}
-                            onClick={() => scrollToSection(item.id)}
-                            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                <nav className="hidden md:flex items-center space-x-8">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            className="text-sm font-medium text-white/80 hover:text-accent transition-colors duration-200"
                         >
-                            {item.label}
-                        </button>
+                            {link.name}
+                        </a>
                     ))}
-                    <Button onClick={() => scrollToSection('contact')} size="sm">
-                        Get a Free AI-Powered Audit
-                    </Button>
                 </nav>
+
+                <div className="hidden md:flex items-center">
+                    <a href="#audit" className="bg-white/10 hover:bg-white/20 text-white px-6 py-2 rounded-full text-sm font-medium transition-all backdrop-blur-sm border border-white/10 hover:border-accent/50 flex items-center gap-2 group">
+                        Get Free Audit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden p-2"
+                    className="md:hidden text-white"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    aria-label="Toggle menu"
                 >
-                    {mobileMenuOpen ? (
-                        <X className="h-6 w-6" />
-                    ) : (
-                        <Menu className="h-6 w-6" />
-                    )}
+                    {mobileMenuOpen ? <X /> : <Menu />}
                 </button>
             </div>
 
-            {/* Mobile Navigation */}
-            {mobileMenuOpen && (
-                <div className="md:hidden border-t bg-background">
-                    <nav className="container mx-auto flex flex-col gap-4 p-4">
-                        {navItems.map((item) => (
-                            <button
-                                key={item.id}
-                                onClick={() => scrollToSection(item.id)}
-                                className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                            >
-                                {item.label}
-                            </button>
-                        ))}
-                        <Button onClick={() => scrollToSection('contact')} className="w-full">
-                            Get a Free AI-Powered Audit
-                        </Button>
-                    </nav>
-                </div>
-            )}
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 overflow-hidden absolute top-full left-0 right-0 w-full"
+                    >
+                        <div className="flex flex-col p-6 space-y-6 items-center">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="text-xl font-medium text-white/90 hover:text-accent"
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                            <a href="#audit" onClick={() => setMobileMenuOpen(false)} className="bg-accent text-black px-8 py-3 rounded-full text-center font-medium w-full">
+                                Get Free Audit
+                            </a>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }

@@ -1,0 +1,186 @@
+import React, { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, ChevronDown } from 'lucide-react';
+
+export default function Hero() {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const { scrollY } = useScroll();
+    const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+    const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+
+    // Neural Network Animation Effect
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+
+        const particles: Particle[] = [];
+        const particleCount = 60; // Adjust for density
+        const connectionDistance = 150;
+
+        class Particle {
+            x: number;
+            y: number;
+            vx: number;
+            vy: number;
+            size: number;
+
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                if (!ctx) return;
+                ctx.fillStyle = 'rgba(201, 168, 76, 0.5)'; // Gold color
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        const animate = () => {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw connections
+            ctx.strokeStyle = 'rgba(201, 168, 76, 0.1)';
+            ctx.lineWidth = 0.5;
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        };
+
+        animate();
+
+        const handleResize = () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return (
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20">
+            {/* Background Animation */}
+            <canvas
+                ref={canvasRef}
+                className="absolute inset-0 z-0 pointer-events-none opacity-40"
+            />
+
+            {/* Radial Gradient Overlay for Depth */}
+            <div className="absolute inset-0 bg-radial-gradient from-transparent to-background z-0 pointer-events-none" />
+
+            <div className="container mx-auto px-4 z-10 relative flex flex-col items-center text-center">
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm"
+                >
+                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow" />
+                    <span className="text-xs font-mono text-accent tracking-widest uppercase">AI-Powered 360° Marketing Ecosystem</span>
+                </motion.div>
+
+                <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] tracking-tight mb-8 text-white max-w-5xl mx-auto"
+                >
+                    Your Competitors Are Still Doing It Manually. <br />
+                    <span className="text-white/40 italic font-serif">You Don't Have To.</span>
+                </motion.h1>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+                >
+                    XMS AI combines 20+ years of battle-tested marketing expertise
+                    with the world's most powerful AI tools to scale your brand, automate growth,
+                    and make you visible everywhere.
+                </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    className="flex flex-col sm:flex-row items-center gap-4"
+                >
+                    <a href="#audit" className="group relative px-8 py-4 bg-accent text-background font-bold text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_-5px_hsl(var(--accent)/0.5)]">
+                        <span className="relative z-10 flex items-center gap-2">
+                            Activate Your AI Ecosystem
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                    </a>
+
+                    <a href="#ecosystem" className="text-white/70 hover:text-white font-medium flex items-center gap-2 transition-colors px-6 py-4">
+                        Explore the 360° Framework <ChevronDown className="w-4 h-4 animate-bounce" />
+                    </a>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.2 }}
+                    className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center gap-6 md:gap-12"
+                >
+                    <p className="text-sm text-white/40 uppercase tracking-widest font-mono">Trusted by 1,100+ Businesses</p>
+                    {/* Simple logo strip placeholder */}
+                    <div className="flex items-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                        {/* Placeholders for partner logos/trust indicators */}
+                        <div className="h-6 w-24 bg-white/20 rounded"></div>
+                        <div className="h-6 w-24 bg-white/20 rounded"></div>
+                        <div className="h-6 w-24 bg-white/20 rounded"></div>
+                        <div className="h-6 w-24 bg-white/20 rounded"></div>
+                    </div>
+                </motion.div>
+
+            </div>
+        </section>
+    );
+}

@@ -1,0 +1,70 @@
+---
+const toolCategories = [
+    {
+        category: "RESEARCH & SEO",
+        tools: ["Semrush", "Ahrefs", "Moz Pro", "DeepSeek"],
+    },
+    {
+        category: "AUTOMATION",
+        tools: ["Make.com", "n8n", "Zapier"],
+    },
+    {
+        category: "CREATIVE & CONTENT",
+        tools: ["Adobe Firefly", "Gemini", "Envato"],
+    },
+    {
+        category: "DEVELOPMENT",
+        tools: ["Lovable", "React", "Astro"],
+    },
+];
+---
+
+<section id="tools" class="py-24 bg-black relative overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div
+            class="flex flex-col md:flex-row items-end justify-between mb-16 gap-8"
+        >
+            <div class="max-w-2xl">
+                <span
+                    class="text-accent text-sm font-mono tracking-widest uppercase block mb-4"
+                    >THE TECHNOLOGY BEHIND YOUR GROWTH</span
+                >
+                <h2 class="text-4xl font-display font-bold text-white mb-4">
+                    Enterprise-Grade AI Tools. <br />
+                    Working For You 24/7.
+                </h2>
+                <p class="text-white/60">
+                    We deploy the most powerful AI platforms available —
+                    configured specifically for your marketing ecosystem.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8">
+            {
+                toolCategories.map((cat) => (
+                    <div class="border-t border-white/20 pt-6 group hover:border-accent/50 transition-colors duration-300">
+                        <h3 class="text-xs font-mono text-white/40 group-hover:text-accent uppercase tracking-widest mb-6 transition-colors">
+                            {cat.category}
+                        </h3>
+                        <ul class="space-y-3">
+                            {cat.tools.map((tool) => (
+                                <li class="flex items-center gap-3 text-white/80 group-hover:text-white transition-colors">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent" />
+                                    {tool}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="mt-16 text-center border-t border-white/10 pt-8">
+            <p class="text-white/40 italic font-serif text-lg">
+                Every tool is a weapon. Together, they're an unstoppable
+                marketing machine.
+            </p>
+        </div>
+    </div>
+</section>

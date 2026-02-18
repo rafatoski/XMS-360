@@ -1,94 +1,63 @@
 ---
-import { Card, CardContent } from "./ui/card";
-import AnimatedSection from "./AnimatedSection";
-
 const testimonials = [
   {
     quote:
-      "XMS-AI transformed our online presence. We went from invisible on Google to ranking #1 for our main services in just 3 months. The AI-powered insights are game-changing.",
-    name: "Sarah Mitchell",
-    role: "Owner",
-    business: "Treasure Coast Dental Care",
-    isPlaceholder: true,
+      "XMS AI completely transformed how we show up online. Within 90 days, we went from invisible to ranking on the first page — and we're even showing up in AI search results.",
+    author: "Client Name",
+    role: "Business Type",
+    location: "Florida",
   },
   {
     quote:
-      "Finally, a marketing agency that actually understands local businesses. Their 360 approach means everything works together—our website, ads, and social media all tell the same story.",
-    name: "Carlos Rodriguez",
-    role: "Founder",
-    business: "Rodriguez HVAC Services",
-    isPlaceholder: true,
+      "Their team doesn't just run campaigns — they built us a real marketing system. We finally have clarity on what's working and why.",
+    author: "Client Name",
+    role: "Industry",
+    location: "USA",
   },
   {
     quote:
-      "The Knowledge Base they built for our business is incredible. Every campaign is smarter because they have all our data organized. Plus, the weekly reports are crystal clear.",
-    name: "Jennifer Thompson",
-    role: "Marketing Director",
-    business: "Coastal Home Remodeling",
-    isPlaceholder: true,
-  },
-  {
-    quote:
-      "We were skeptical about AI in marketing, but XMS-AI proved us wrong. Their team combines technology with real expertise. Our lead volume doubled in the first quarter.",
-    name: "Michael Chen",
-    role: "CEO",
-    business: "Chen Legal Group",
-    isPlaceholder: true,
+      "20 years of experience really shows. They understood our industry immediately and the results speak for themselves.",
+    author: "Client Name",
+    role: "Industry",
+    location: "USA",
   },
 ];
 ---
 
-<section id="testimonials" class="py-24 md:py-32 bg-muted/30">
-  <div class="container mx-auto px-4 max-w-6xl">
-    <AnimatedSection client:visible>
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6">
-          What Our Clients Say
-        </h2>
-        <p class="text-muted-foreground text-lg md:text-xl">
-          Real results from real Treasure Coast businesses
-        </p>
-      </div>
-    </AnimatedSection>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      {
-        testimonials.map((testimonial, index) => (
-          <AnimatedSection client:visible delay={index * 0.1}>
-            <Card className="hover:shadow-md hover:-translate-y-1">
-              <CardContent className="pt-6">
-                {testimonial.isPlaceholder && (
-                  <div class="mb-3">
-                    <span class="text-xs bg-muted px-2 py-1 rounded text-muted-foreground">
-                      Sample Testimonial
-                    </span>
-                  </div>
-                )}
-
-                <blockquote class="mb-6">
-                  <p class="text-muted-foreground italic leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-                </blockquote>
-
-                <div class="border-t pt-4">
-                  <p class="font-semibold">{testimonial.name}</p>
-                  <p class="text-sm text-muted-foreground">
-                    {testimonial.role}, {testimonial.business}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </AnimatedSection>
-        ))
-      }
+<section id="testimonials" class="py-24 bg-black relative">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <span
+        class="text-accent text-sm font-mono tracking-widest uppercase block mb-4"
+        >SOCIAL PROOF</span
+      >
+      <h2 class="text-4xl font-display font-bold text-white">
+        Real Businesses. Real Results.
+      </h2>
     </div>
 
-    <div class="text-center mt-12">
-      <p class="text-sm text-muted-foreground">
-        Note: Replace sample testimonials with real client feedback before
-        launch
-      </p>
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        testimonials.map((t) => (
+          <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all flex flex-col justify-between h-full">
+            <div class="mb-6 text-accent text-2xl">★★★★★</div>
+
+            <blockquote class="text-lg text-white/90 leading-relaxed mb-8 font-light italic">
+              "{t.quote}"
+            </blockquote>
+
+            <div class="flex items-center gap-4 mt-auto pt-6 border-t border-white/5">
+              <div class="w-10 h-10 rounded-full bg-white/10" />
+              <div>
+                <div class="text-white font-bold text-sm">{t.author}</div>
+                <div class="text-white/50 text-xs">
+                  {t.role}, {t.location}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

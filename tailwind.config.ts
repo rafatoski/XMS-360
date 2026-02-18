@@ -6,11 +6,10 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-            },
-            fontSize: {
-                '6xl': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }], // 56px
-                '7xl': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }], // 64px
+                sans: ['DM Sans', 'sans-serif'],
+                serif: ['Cormorant Garamond', 'serif'],
+                mono: ['JetBrains Mono', 'monospace'],
+                display: ['Playfair Display', 'serif'],
             },
             colors: {
                 border: 'hsl(var(--border))',
@@ -47,21 +46,10 @@ export default {
                     foreground: 'hsl(var(--card-foreground))',
                 },
             },
-            spacing: {
-                '18': '4.5rem',
-                '22': '5.5rem',
-                '26': '6.5rem',
-                '30': '7.5rem',
-            },
             borderRadius: {
                 lg: 'var(--radius)',
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)',
-                '2xl': '1rem',
-            },
-            backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'grid-pattern': 'linear-gradient(to right, hsl(var(--border) / 0.1) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--border) / 0.1) 1px, transparent 1px)',
             },
             keyframes: {
                 'accordion-down': {
@@ -80,12 +68,22 @@ export default {
                     from: { transform: 'translateY(20px)', opacity: '0' },
                     to: { transform: 'translateY(0)', opacity: '1' },
                 },
+                'pulse-glow': {
+                    '0%, 100%': { boxShadow: '0 0 20px -5px hsl(var(--accent) / 0.5)' },
+                    '50%': { boxShadow: '0 0 40px -5px hsl(var(--accent) / 0.8)' },
+                },
+                'orbit': {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
+                }
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
                 'fade-in': 'fade-in 0.5s ease-out',
                 'slide-up': 'slide-up 0.5s ease-out',
+                'pulse-glow': 'pulse-glow 3s infinite',
+                'orbit': 'orbit 60s linear infinite',
             },
         },
     },

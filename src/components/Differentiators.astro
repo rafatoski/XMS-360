@@ -1,0 +1,54 @@
+---
+const stats = [
+    {
+        value: "20+",
+        label: "Years of Proven Expertise",
+        desc: "We've navigated every shift in digital marketing — from the first Google algorithm to the AI revolution.",
+    },
+    {
+        value: "100%",
+        label: "Hybrid Human + AI Model",
+        desc: "AI is our engine. Our expert team are the pilots. Every automated system is guided by strategic humans.",
+    },
+    {
+        value: "AEO",
+        label: "Answer Engine Optimization",
+        desc: "We go beyond Google. We optimize your brand to be cited by ChatGPT, Gemini, and Perplexity.",
+    },
+    {
+        value: "15+",
+        label: "Industries Served",
+        desc: "From healthcare to real estate — our AI systems are calibrated to the unique language of your sector.",
+    },
+];
+---
+
+<section class="py-24 bg-white/5 border-y border-white/5">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white">
+                Why 1,100+ Businesses Trust XMS AI
+            </h2>
+        </div>
+
+        <div
+            class="grid md:grid-cols-4 gap-12 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-white/10"
+        >
+            {
+                stats.map((stat) => (
+                    <div class="px-4 py-8 md:py-0">
+                        <div class="text-5xl md:text-6xl font-bold text-accent font-display mb-2">
+                            {stat.value}
+                        </div>
+                        <div class="text-white font-bold mb-4 uppercase tracking-widest text-sm">
+                            {stat.label}
+                        </div>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            {stat.desc}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
