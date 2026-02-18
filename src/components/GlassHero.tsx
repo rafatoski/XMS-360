@@ -75,6 +75,30 @@ export default function GlassHero() {
                             </button>
                         </div>
 
+                        {/* Certification Row */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.8, duration: 1 }}
+                            className="flex items-center justify-center md:justify-start gap-8 md:gap-12 mt-12 pt-8 "
+                        >
+                            <img
+                                src="https://wemanageweb.co.uk/wp-content/uploads/2024/02/meta_partner_logo.png"
+                                alt="Meta Partner"
+                                className="h-7 md:h-18 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                            />
+                            <img
+                                src="https://wexpert.com.au/wp-content/uploads/2022/01/Logo-4.png"
+                                alt="Google Ads Partner"
+                                className="h-6 md:h-18 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                            />
+                            <img
+                                src="https://fullermarketing.ie/wp-content/uploads/2018/09/google-logo-white-small.png"
+                                alt="Google Certified"
+                                className="h-6 md:h-18 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                            />
+                        </motion.div>
+
                     </motion.div>
                 </div>
             </div>

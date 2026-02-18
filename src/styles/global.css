@@ -115,42 +115,26 @@
 }
 
 :root {
-  /* GALAXY GOLD THEME */
-
-  /* Background Base: Deep Space Blue #080B14 */
+  /* DARK MODE (Restore as Default) */
   --background: 225 43% 5%;
-  /* Text: White #F8F9FA */
   --foreground: 210 17% 98%;
-
-  /* Card BG: Slightly lighter #0E1220 */
   --card: 226 39% 9%;
   --card-foreground: 210 17% 98%;
-
   --popover: 226 39% 9%;
   --popover-foreground: 210 17% 98%;
-
-  /* Primary/Accent: Blue #3B82F6 (HSL 217 91% 60%) */
   --primary: 217 91% 60%;
   --primary-foreground: 225 43% 5%;
-
   --secondary: 225 25% 15%;
   --secondary-foreground: 210 17% 98%;
-
   --muted: 225 25% 15%;
   --muted-foreground: 215 16% 65%;
-  /* Soft gray for body copy */
-
   --accent: 217 91% 60%;
   --accent-foreground: 225 43% 5%;
-
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
-
   --border: 217 91% 60%;
-  /* Using Blue for borders but opacity usually handled in utility */
   --input: 225 25% 15%;
   --ring: 217 91% 60%;
-
   --radius: 0.5rem;
 }
 
@@ -207,6 +191,7 @@
   .text-gradient-blue {
     background: linear-gradient(to right, #F8F9FA, #3B82F6);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 

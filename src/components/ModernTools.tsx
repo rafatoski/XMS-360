@@ -7,33 +7,33 @@ const ImageMap: Record<string, string> = {
     "Gemini": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
     "DeepSeek": "https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg",
     "Zapier": "https://cdn.worldvectorlogo.com/logos/zapier-1.svg",
-    "n8n": "https://upload.wikimedia.org/wikipedia/commons/4/4e/N8n-logo.svg",
-    "Adobe Firefly": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Adobe_Firefly_Icon.svg", // Finding a better SVG if possible
-    "Semrush": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Semrush_logo.svg/2560px-Semrush_logo.svg.png",
+    "n8n": "https://upload.wikimedia.org/wikipedia/commons/5/53/N8n-logo-new.svg",
+    "Adobe Firefly": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Adobe_Firefly_Logo.svg",
+    "Semrush": "https://prowly-prod.s3.eu-west-1.amazonaws.com/uploads/60169/assets/601034/large-3bdd656221871c8f76cfc28d55336d9a.png",
     "Ahrefs": "https://companieslogo.com/img/orig/ahrefs_BIG-20d12c92.png",
-    "Make.com": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Make_Logo.svg",
+    "Make.com": "https://1000logos.net/wp-content/uploads/2026/01/Make-com-Logo.png",
     "Lovable": "https://lovable.dev/favicon.ico",
-    "Moz": "https://www.vectorlogo.zone/logos/moz/moz-icon.svg",
+    "OpenClaw": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/openclaw.svg",
     "HubSpot": "https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg",
     "Shopify": "https://www.vectorlogo.zone/logos/shopify/shopify-icon.svg",
     "TikTok": "https://www.vectorlogo.zone/logos/tiktok/tiktok-icon.svg",
     "LinkedIn": "https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg",
     "Stripe": "https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg",
-    "Klaviyo": "https://cdn.worldvectorlogo.com/logos/klaviyo.svg",
+    "Microsoft Teams": "https://conserto.pro/wp-content/uploads/2022/11/microsoftteams-image-56-265x300.png",
     "WordPress": "https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg",
     "Salesforce": "https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg",
     "Mailchimp": "https://www.vectorlogo.zone/logos/mailchimp/mailchimp-icon.svg",
     "Canva": "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
     "Figma": "https://www.vectorlogo.zone/logos/figma/figma-icon.svg",
     "Google Ads": "https://www.vectorlogo.zone/logos/google_ads/google_ads-icon.svg",
-    "Meta": "https://www.vectorlogo.zone/logos/meta/meta-icon.svg",
+    "Meta": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
     "Google Analytics": "https://www.vectorlogo.zone/logos/google_analytics/google_analytics-icon.svg",
-    "Looker": "https://www.vectorlogo.zone/logos/google_looker/google_looker-icon.svg",
-    "Midjourney": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Midjourney_Emblem.svg",
-    "Notion": "https://www.vectorlogo.zone/logos/notion/notion-icon.svg",
+    "Looker": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Looker.svg",
+    "Midjourney": "https://document360.com/wp-content/themes/document360/images/customers/white/midjourney-logo-white.png",
+    "Notion": "https://www.pngall.com/wp-content/uploads/15/Notion-Logo-PNG-Pic.png",
     "Webflow": "https://www.vectorlogo.zone/logos/webflow/webflow-icon.svg",
     "React": "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg",
-    "Astro": "https://www.vectorlogo.zone/logos/astro/astro-icon.svg",
+    "Astro": "https://astro.build/assets/press/astro-logo-light-gradient.svg",
     "Tailwind": "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
     "Python": "https://www.vectorlogo.zone/logos/python/python-icon.svg",
     "Perplexity": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg"
@@ -45,13 +45,13 @@ const toolsRow1 = [
 ];
 
 const toolsRow2 = [
-    "Klaviyo", "WordPress", "Salesforce", "Mailchimp", "Canva",
+    "Microsoft Teams", "WordPress", "Salesforce", "Mailchimp", "Canva",
     "DeepSeek", "Make.com", "n8n", "Adobe Firefly", "Figma"
 ];
 
 const toolsRow3 = [
     "Google Analytics", "Looker", "Perplexity", "Midjourney", "Notion",
-    "Webflow", "React", "Astro", "Tailwind", "Python", "Gemini", "Lovable", "Moz", "Ahrefs"
+    "Webflow", "React", "Astro", "Tailwind", "Python", "Gemini", "Lovable", "OpenClaw", "Ahrefs"
 ];
 
 // Duplicate lists for seamless loop
@@ -64,7 +64,7 @@ const ToolCard = ({ name }: { name: string }) => {
 
     return (
         <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
-            <div className="w-52 h-36 bg-white/5 rounded-xl flex items-center justify-center border border-white/5 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all hover:scale-105 hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.3)] group overflow-hidden p-8">
+            <div className="w-52 h-36 bg-white/5 rounded-xl flex items-center justify-center border border-white/5 hover:border-white/20 hover:bg-white/10 hover:backdrop-blur-md transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] group overflow-hidden p-8">
                 {ImageUrl ? (
                     <img
                         src={ImageUrl}
@@ -72,7 +72,7 @@ const ToolCard = ({ name }: { name: string }) => {
                         className="w-full h-full object-contain opacity-50 group-hover:opacity-100 transition-opacity"
                     />
                 ) : (
-                    <span className="text-sm font-bold text-white/40 font-display">{name}</span>
+                    <span className="text-sm font-bold text-white/40 group-hover:text-white font-display">{name}</span>
                 )}
             </div>
         </div>
