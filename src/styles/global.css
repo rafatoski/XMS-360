@@ -1,5 +1,5 @@
-/* Import Google Fonts - Syne (Headlines), DM Sans (Body), JetBrains Mono (Tech) */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap');
+/* Import Google Fonts - Syne (Headlines), DM Sans (Body), Inter (Mono/Utility), Inter Tight (Condensed) */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
 @config "../../tailwind.config.cjs";
@@ -8,8 +8,9 @@
   --font-sans: 'DM Sans', sans-serif;
   --font-serif: 'Syne', sans-serif;
   /* Using Syne as our 'serif' / headline font replacement */
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'Inter', sans-serif;
   --font-display: 'Syne', sans-serif;
+  --font-condensed: 'Inter Tight', sans-serif;
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
