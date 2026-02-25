@@ -20,8 +20,11 @@ export default function GlassHero() {
                 <div className="absolute inset-0 z-20 opacity-20 pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
             </div>
 
-            {/* Glassmorphism Background Overlay */}
-            <div className="absolute inset-0 z-10 backdrop-blur-xl bg-white/5 border-b border-blue-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"></div>
+            {/* Hero Background Elements - Maintaining transparency */}
+            <div className="absolute inset-0 z-10 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
+            </div>
 
             <div className="container mx-auto px-6 md:px-12 lg:px-24 z-20 relative py-20">
                 <div className="max-w-7xl">
@@ -65,14 +68,22 @@ export default function GlassHero() {
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
-                            <Button className="h-14 px-10 rounded-full bg-blue-600 text-white font-bold text-lg hover:bg-blue-500 transition-all shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.6)] hover:scale-105 active:scale-95 group">
-                                Get My Free Audit
-                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <Button
+                                asChild
+                                className="h-14 px-10 rounded-full bg-blue-600 text-white font-bold text-lg hover:bg-blue-500 transition-all shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.6)] hover:scale-105 active:scale-95 group"
+                            >
+                                <a href="#contact">
+                                    Get My Free Audit
+                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </a>
                             </Button>
 
-                            <button className="flex items-center gap-2 text-white/60 hover:text-white transition-colors font-medium border-b border-white/10 hover:border-white pb-1">
+                            <a
+                                href="#tools"
+                                className="flex items-center gap-2 text-white/60 hover:text-white transition-colors font-medium border-b border-white/10 hover:border-white pb-1"
+                            >
                                 Explore The Ecosystem →
-                            </button>
+                            </a>
                         </div>
 
                         {/* Certification Row */}
@@ -83,17 +94,17 @@ export default function GlassHero() {
                             className="flex items-center justify-center md:justify-start gap-8 md:gap-12 mt-12 pt-8 "
                         >
                             <img
-                                src="https://wemanageweb.co.uk/wp-content/uploads/2024/02/meta_partner_logo.png"
+                                src="/brand/meta-partner.png"
                                 alt="Meta Partner"
                                 className="h-7 md:h-18 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                             />
                             <img
-                                src="https://wexpert.com.au/wp-content/uploads/2022/01/Logo-4.png"
+                                src="/brand/google-ads-partner.png"
                                 alt="Google Ads Partner"
                                 className="h-6 md:h-18 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                             />
                             <img
-                                src="https://fullermarketing.ie/wp-content/uploads/2018/09/google-logo-white-small.png"
+                                src="/brand/google-certified.png"
                                 alt="Google Certified"
                                 className="h-6 md:h-18 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                             />

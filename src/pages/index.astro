@@ -8,6 +8,7 @@ import ModernTools from "../components/ModernTools";
 import Industries from "../components/Industries.astro";
 import Testimonials from "../components/Testimonials.astro";
 import FAQ from "../components/FAQ";
+import ContactForm from "../components/ContactForm";
 import CTA from "../components/CTA.astro";
 import Footer from "../components/Footer.astro";
 
@@ -49,6 +50,9 @@ const ogImage = `${siteUrl}/og-image.png`;
     {/* Preconnect to Google Fonts */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    {/* Plausible Analytics */}
+    <script defer data-domain="xperienceaimarketing.com" src="https://plausible.io/js/script.js"></script>
   </head>
   <body
     class="bg-black text-white antialiased selection:bg-accent selection:text-black overflow-x-hidden"
@@ -60,18 +64,13 @@ const ogImage = `${siteUrl}/og-image.png`;
       <VideoSection />
       <PainPoints />
 
-      {
-        /* 
-      REMOVED: Ecosystem and Methodology as per request
-      <Ecosystem client:visible />
-      <Methodology /> 
-      */
-      }
-
-      <ModernTools client:visible />
+      <div id="tools">
+        <ModernTools client:visible />
+      </div>
       <Industries />
       <Testimonials />
       <FAQ client:visible />
+      <ContactForm client:visible />
       <CTA />
     </main>
 
