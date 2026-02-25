@@ -55,9 +55,9 @@ const toolsRow3 = [
 ];
 
 // Duplicate lists for seamless loop
-const marqueeRow1 = [...toolsRow1, ...toolsRow1, ...toolsRow1];
-const marqueeRow2 = [...toolsRow2, ...toolsRow2, ...toolsRow2];
-const marqueeRow3 = [...toolsRow3, ...toolsRow3, ...toolsRow3];
+const marqueeRow1 = [...toolsRow1, ...toolsRow1];
+const marqueeRow2 = [...toolsRow2, ...toolsRow2];
+const marqueeRow3 = [...toolsRow3, ...toolsRow3];
 
 const ToolCard = ({ name }: { name: string }) => {
     const ImageUrl = ImageMap[name];

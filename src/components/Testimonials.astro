@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     quote:
-      "The autonomous ecosystem handles our entire content pipeline. It's like having a 50-person marketing team on autopilot. Terrifyingly efficient.",
+      "The autonomous ecosystem handles our entire content pipeline. It's like having a 50-person marketing team on autopilot.",
     author: "David K.",
     role: "Director, Nexus Corp",
     avatar: "https://i.pravatar.cc/150?u=david",
@@ -35,50 +35,11 @@ const testimonials = [
     avatar: "https://i.pravatar.cc/150?u=james",
   },
   {
-    quote: "XMS AI is the unfair advantage.",
-    author: "Olivia M.",
-    role: "Product Lead, Spark",
-    avatar: "https://i.pravatar.cc/150?u=olivia",
-  },
-  {
     quote:
-      "Every dollar we spend has a clear, measurable return. Absolutely vital for our scaling phase.",
-    author: "Alex B.",
-    role: "Marketing Director, Peak",
-    avatar: "https://i.pravatar.cc/150?u=alex",
-  },
-  {
-    quote: "The 360 approach is exactly what we needed.",
-    author: "Isabella C.",
-    role: "CEO, Visionary",
-    avatar: "https://i.pravatar.cc/150?u=isabella",
-  },
-  {
-    quote:
-      "Terrifying efficiency. Safe to say, XMS AI is the unfair advantage.",
-    author: "Lucas H.",
-    role: "Founder, TechTrove",
-    avatar: "https://i.pravatar.cc/150?u=lucas",
-  },
-  {
-    quote: "The insights provided saved us months of trial and error.",
-    author: "Mia S.",
-    role: "Creative Director, DesignLab",
-    avatar: "https://i.pravatar.cc/150?u=mia",
-  },
-  {
-    quote:
-      "The strategic clarity we gained was invaluable. They didn't just give us tools; they gave us a roadmap to dominance. Their focus on ROI above all else is what sets them apart.",
+      "The strategic clarity we gained was invaluable. They didn't just give us tools; they gave us a roadmap to dominance.",
     author: "Michael R.",
     role: "CEO, InnovateX",
     avatar: "https://i.pravatar.cc/150?u=michael",
-  },
-  {
-    quote:
-      "Absolutely vital strategy and execution. We couldn't have scaled this fast without XMS.",
-    author: "Ethan P.",
-    role: "VP of Strategy, GlobalReach",
-    avatar: "https://i.pravatar.cc/150?u=ethan",
   },
 ];
 ---
@@ -136,6 +97,9 @@ const testimonials = [
               <img
                 src={t.avatar}
                 alt={t.author}
+                width="32"
+                height="32"
+                loading="lazy"
                 class="w-8 h-8 rounded-full border border-white/10 object-cover grayscale group-hover:grayscale-0 transition-all"
               />
               <div class="text-left">

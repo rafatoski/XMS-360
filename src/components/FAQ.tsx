@@ -31,14 +31,17 @@ const faqs = [
 
 export default function FAQ() {
     return (
-        <section className="py-24 md:py-28 bg-black relative overflow-hidden" id="faq">
+        <section className="py-24 md:py-32 bg-[#0a0a0b] relative overflow-hidden border-y border-white/5" id="faq">
+            {/* Background Decor - Intensified radial glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent pointer-events-none opacity-60"></div>
+
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-3xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-2xl md:text-4xl font-bold font-display text-white mb-6">
+                        <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">
                             Frequently Asked Questions
                         </h2>
-                        <p className="text-white/60">
+                        <p className="text-white/60 text-lg max-w-2xl mx-auto font-sans leading-relaxed">
                             Everything you need to know about the XMS Ecosystem.
                         </p>
                     </div>
@@ -49,7 +52,7 @@ export default function FAQ() {
                                 <AccordionItem
                                     key={index}
                                     value={`item-${index}`}
-                                    className="border border-white/10 bg-white/5 backdrop-blur-sm rounded-xl px-6 data-[state=open]:bg-white/10 data-[state=open]:border-blue-500/30 transition-all duration-300"
+                                    className="border border-white/10 bg-white/5 backdrop-blur-md rounded-xl px-6 data-[state=open]:bg-white/10 data-[state=open]:border-blue-500/30 transition-all duration-300"
                                 >
                                     <AccordionTrigger className="text-left text-white hover:text-blue-400 font-display text-lg py-6 hover:no-underline transition-colors">
                                         {faq.question}
@@ -63,6 +66,10 @@ export default function FAQ() {
                     </div>
                 </div>
             </div>
+
+            {/* Decorative Atmosphere - Large ambient glows */}
+            <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
+            <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
         </section>
     );
 }

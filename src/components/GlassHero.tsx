@@ -2,22 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
+import LiquidBackground from './LiquidBackground';
 
 export default function GlassHero() {
     return (
-        <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-black">
 
-            {/* Background Image with Blur & Dim Overlay */}
+            {/* Main Liquid Background Animation */}
             <div className="absolute inset-0 z-0 select-none">
-                <div className="absolute inset-0 bg-black/60 z-10"></div>
-                {/* Abstract City/Tech Background - High Quality Placeholder */}
-                <img
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
-                    alt="Deep Space Abstract"
-                    className="w-full h-full object-cover blur-sm opacity-50 scale-105"
-                />
-                {/* Granular Noise Overlay for Texture */}
-                <div className="absolute inset-0 z-20 opacity-20 pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+                {/* [NEW] High-End Liquid Background Animation (Prism Style) */}
+                <LiquidBackground />
+
+                {/* Granular Noise Overlay for Texture - Keeping it subtle above the liquid */}
+                <div className="absolute inset-0 z-10 opacity-10 pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
             </div>
 
             {/* Hero Background Elements - Maintaining transparency */}

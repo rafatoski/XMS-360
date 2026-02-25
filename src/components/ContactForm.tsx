@@ -107,7 +107,7 @@ export default function ContactForm() {
 
     if (submitStatus === 'success') {
         return (
-            <section id="contact" className="py-20 bg-background">
+            <section id="contact" className="py-20 bg-black">
                 <div className="container mx-auto px-4 max-w-2xl text-center">
                     <div className="glass-card rounded-2xl p-12 space-y-4">
                         <div className="text-5xl mb-4">✅</div>
@@ -130,7 +130,7 @@ export default function ContactForm() {
     }
 
     return (
-        <section id="contact" className="py-20 bg-background">
+        <section id="contact" className="py-24 md:py-32 bg-black relative overflow-hidden">
             <div className="container mx-auto px-4 max-w-2xl">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
