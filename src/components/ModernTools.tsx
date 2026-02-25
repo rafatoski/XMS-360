@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 // External Logos (using reliable CDNs or placeholders)
 const ImageMap: Record<string, string> = {
@@ -81,7 +81,31 @@ const ToolCard = ({ name }: { name: string }) => {
 
 export default function ModernTools() {
     return (
-        <section className="py-24 md:pt-28 md:pb-4 bg-background relative overflow-hidden text-white border-y border-white/5">
+        <ModernToolsContent />
+    );
+}
+
+// Separate component to use hooks properly
+function ModernToolsContent() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false, amount: 0.1 });
+
+    const marqueeProps = (duration: number, direction: number[]) => ({
+        animate: isInView ? { x: direction } : {},
+        transition: {
+            repeat: Infinity,
+            repeatType: "loop" as const,
+            duration: duration,
+            ease: "linear" as const,
+        },
+        style: {
+            willChange: "transform",
+            contain: "layout paint"
+        }
+    });
+
+    return (
+        <section ref={ref} className="py-24 md:pt-28 md:pb-4 bg-background relative overflow-hidden text-white border-y border-white/5">
 
             <div className="text-center max-w-3xl mx-auto mb-20 px-4">
                 <span className="text-blue-400 text-xs font-mono tracking-widest uppercase mb-4 block">THE TECHNOLOGY BEHIND YOUR GROWTH</span>
@@ -97,20 +121,12 @@ export default function ModernTools() {
 
             {/* Marquee Container - Full Width */}
             <div className="relative w-full overflow-hidden py-12 flex flex-col gap-4">
-                <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute inset-x-0 top-0 h-48 bg-linear-to-b from-background to-transparent z-10 pointer-events-none"></div>
 
                 {/* Row 1 */}
                 <motion.div
                     className="flex gap-4 min-w-max"
-                    animate={{ x: [0, -2000] }}
-                    transition={{
-                        x: {
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 50,
-                            ease: "linear",
-                        },
-                    }}
+                    {...marqueeProps(50, [0, -2000])}
                 >
                     {marqueeRow1.map((tool, index) => (
                         <ToolCard key={`r1-${tool}-${index}`} name={tool} />
@@ -120,15 +136,7 @@ export default function ModernTools() {
                 {/* Row 2 */}
                 <motion.div
                     className="flex gap-4 min-w-max"
-                    animate={{ x: [-500, -2500] }}
-                    transition={{
-                        x: {
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 55,
-                            ease: "linear",
-                        },
-                    }}
+                    {...marqueeProps(55, [-500, -2500])}
                 >
                     {marqueeRow2.map((tool, index) => (
                         <ToolCard key={`r2-${tool}-${index}`} name={tool} />
@@ -138,24 +146,13 @@ export default function ModernTools() {
                 {/* Row 3 */}
                 <motion.div
                     className="flex gap-4 min-w-max"
-                    animate={{ x: [-200, -2200] }}
-                    transition={{
-                        x: {
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 45,
-                            ease: "linear",
-                        },
-                    }}
+                    {...marqueeProps(45, [-200, -2200])}
                 >
                     {marqueeRow3.map((tool, index) => (
                         <ToolCard key={`r3-${tool}-${index}`} name={tool} />
                     ))}
                 </motion.div>
             </div>
-
-
-
         </section>
     );
 }
