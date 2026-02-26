@@ -87,5 +87,72 @@ const ogImage = `${siteUrl}/og-image.png`;
     </main>
 
     <Footer />
+
+    <div class="el-siri-glow" aria-hidden="true"></div>
+    <elevenlabs-convai agent-id="agent_9901kjdgmj5sfmqrh85sk3dpvy80"></elevenlabs-convai>
+
+    <style is:global>
+      @keyframes siri-gradient {
+        0%, 100% { background-position: 0% 50%; }
+        50%       { background-position: 100% 50%; }
+      }
+      @keyframes siri-pulse {
+        0%, 100% { opacity: 0.55; }
+        50%       { opacity: 0.9; }
+      }
+      .el-siri-glow {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #9333ea, #3b82f6, #06b6d4, #9333ea);
+        background-size: 300% 300%;
+        animation: siri-gradient 4s ease infinite, siri-pulse 4s ease infinite;
+        filter: blur(14px);
+        z-index: 999;
+        pointer-events: none;
+        will-change: transform, opacity;
+      }
+    </style>
+
+    <script is:inline>
+      (function () {
+        const host = document.querySelector("elevenlabs-convai");
+        if (!host) return;
+
+        function collapse() {
+          const sr = host.shadowRoot;
+          if (!sr) return false;
+          if (sr.querySelector('[aria-label="Open chat"]')) return true;
+          const btn =
+            sr.querySelector('[aria-label="Close chat"]') ??
+            sr.querySelector('[aria-label*="Close"]') ??
+            sr.querySelector('[aria-label*="close"]');
+          if (btn) { btn.click(); return true; }
+          return false;
+        }
+
+        function watchShadowRoot() {
+          const sr = host.shadowRoot;
+          if (!sr) return;
+          if (collapse()) return;
+          const obs = new MutationObserver(() => {
+            if (collapse()) obs.disconnect();
+          });
+          obs.observe(sr, { childList: true, subtree: true, attributes: true });
+        }
+
+        customElements.whenDefined("elevenlabs-convai").then(() => {
+          customElements.upgrade(host);
+          watchShadowRoot();
+        });
+
+        if (customElements.get("elevenlabs-convai")) watchShadowRoot();
+      })();
+    </script>
+
+    <script defer src="https://unpkg.com/@elevenlabs/convai-widget-embed"></script>
   </body>
 </html>
