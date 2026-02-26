@@ -7,8 +7,8 @@ const XMS_BASE = 'https://xperienceaimarketing.com';
 
 const navLinks = [
     { name: 'About Us', href: `${XMS_BASE}/about-us-xms-ai-marketing-team/` },
-    { name: 'AI Marketing Solutions', href: `${XMS_BASE}/360-ecosystem` },
-    { name: 'AI Websites', href: `${XMS_BASE}/website-development/` },
+    { name: 'Ai Marketing Solutions', href: `${XMS_BASE}/360-ecosystem` },
+    { name: 'Ai Websites', href: `${XMS_BASE}/website-development/` },
     { name: 'Creative Content', href: `${XMS_BASE}/creative-content-and-design/` },
     { name: 'Contact Us', href: `${XMS_BASE}/contact-us/` },
 ];
@@ -48,7 +48,7 @@ export default function Header() {
             <div className={`container mx-auto px-6 flex items-center justify-between relative z-50 ${isScrolled ? 'md:px-8' : 'md:px-6'}`}>
                 <a href={XMS_BASE} className="flex items-center gap-2 shrink-0">
                     {/* LOGO */}
-                    <img src={`${import.meta.env.BASE_URL}brand/XMS LOGO - BLACK BACKGROUND.webp`} alt="XMS AI Logo" className={`transition-all duration-300 ${isScrolled ? 'h-10' : 'h-14'} w-auto`} />
+                    <img src={`${import.meta.env.BASE_URL}brand/XMS LOGO - BLACK BACKGROUND.webp`} alt="XMS Ai Logo" className={`transition-all duration-300 ${isScrolled ? 'h-10' : 'h-14'} w-auto`} />
                 </a>
 
                 <nav className="hidden md:flex items-center gap-8">

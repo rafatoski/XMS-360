@@ -134,10 +134,10 @@ export default function ContactForm() {
             <div className="container mx-auto px-4 max-w-2xl">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Get Your Free AI-Powered Marketing Audit
+                        Get Your Free Ai-Powered Marketing Audit
                     </h2>
                     <p className="text-muted-foreground text-lg">
-                        Discover how AI can transform your marketing. No obligations, just insights.
+                        Discover how Ai can transform your marketing. No obligations, just insights.
                     </p>
                 </div>
 
@@ -308,7 +308,7 @@ export default function ContactForm() {
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center">
-                        By submitting this form, you agree to be contacted by XMS-AI regarding your marketing needs.
+                        By submitting this form, you agree to be contacted by XMS-Ai regarding your marketing needs.
                     </p>
                 </form>
             </div>

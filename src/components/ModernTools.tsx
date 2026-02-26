@@ -110,11 +110,11 @@ function ModernToolsContent() {
             <div className="text-center max-w-3xl mx-auto mb-20 px-4">
                 <span className="text-blue-400 text-xs font-mono tracking-widest uppercase mb-4 block">THE TECHNOLOGY BEHIND YOUR GROWTH</span>
                 <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">
-                    Enterprise-Grade AI Tools. <br />
+                    Enterprise-Grade Ai Tools. <br />
                     <span className="text-white/50">Working For You 24/7.</span>
                 </h2>
                 <p className="text-white/60 font-sans text-base">
-                    We deploy the most powerful AI platforms available —
+                    We deploy the most powerful Ai platforms available —
                     the same technology used by Fortune 500 companies.
                 </p>
             </div>

@@ -9,15 +9,15 @@ import {
 const faqs = [
     {
         question: "How is XMS different from a traditional agency?",
-        answer: "We are a hybrid AI + Human ecosystem. Traditional agencies rely on manual labor and billable hours. We rely on intelligent automation and performance outcomes. We don't just execute; we build you a proprietary growth engine."
+        answer: "We are a hybrid Ai + Human ecosystem. Traditional agencies rely on manual labor and billable hours. We rely on intelligent automation and performance outcomes. We don't just execute; we build you a proprietary growth engine."
     },
     {
         question: "What is AEO and why does it matter?",
-        answer: "AEO (Answer Engine Optimization) is the future of SEO. As users shift to AI search (ChatGPT, Perplexity, Gemini), ranking for keywords isn't enough. You need to be the referenced authority. We optimize your brand to be cited by AI models."
+        answer: "AEO (Answer Engine Optimization) is the future of SEO. As users shift to Ai search (ChatGPT, Perplexity, Gemini), ranking for keywords isn't enough. You need to be the referenced authority. We optimize your brand to be cited by Ai models."
     },
     {
         question: "Do I need to replace my current team?",
-        answer: "No. XMS is an ecosystem accelerator. We often partner with internal marketing teams to supercharge their capabilities with AI tools and high-level strategy, allowing them to focus on creative and execution."
+        answer: "No. XMS is an ecosystem accelerator. We often partner with internal marketing teams to supercharge their capabilities with Ai tools and high-level strategy, allowing them to focus on creative and execution."
     },
     {
         question: "How fast can we see results?",
