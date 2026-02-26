@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
+
+const XMS_BASE = 'https://xperienceaimarketing.com';
+
+const navLinks = [
+    { name: 'About Us', href: `${XMS_BASE}/about-us-xms-ai-marketing-team/` },
+    { name: 'AI Marketing Solutions', href: `${XMS_BASE}/360-ecosystem` },
+    { name: 'AI Websites', href: `${XMS_BASE}/website-development/` },
+    { name: 'Creative Content', href: `${XMS_BASE}/creative-content-and-design/` },
+    { name: 'Contact Us', href: `${XMS_BASE}/contact-us/` },
+];
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -15,12 +25,16 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = [
-        { name: 'Tools', href: '#tools' },
-        { name: 'Results', href: '#testimonials' },
-        { name: 'Industries', href: '#industries' },
-        { name: 'FAQ', href: '#faq' },
-    ];
+    // Open the audit modal (defined in GlassHero)
+    const openAuditModal = () => {
+        const overlay = document.getElementById('xmsModalOverlay');
+        if (overlay) {
+            overlay.classList.add('active');
+            const urlInput = document.getElementById('xmsWebsiteUrl') as HTMLInputElement | null;
+            if (urlInput) urlInput.focus();
+        }
+        setIsMobileMenuOpen(false);
+    };
 
     return (
         <motion.header
@@ -32,9 +46,9 @@ export default function Header() {
                 }`}
         >
             <div className={`container mx-auto px-6 flex items-center justify-between relative z-50 ${isScrolled ? 'md:px-8' : 'md:px-6'}`}>
-                <a href="/" className="flex items-center gap-2 shrink-0">
-                    {/* LOGO REPLACEMENT */}
-                    <img src="/brand/XMS LOGO - BLACK BACKGROUND.webp" alt="XMS AI Logo" className={`transition-all duration-300 ${isScrolled ? 'h-10' : 'h-14'} w-auto`} />
+                <a href={XMS_BASE} className="flex items-center gap-2 shrink-0">
+                    {/* LOGO */}
+                    <img src={`${import.meta.env.BASE_URL}brand/XMS LOGO - BLACK BACKGROUND.webp`} alt="XMS AI Logo" className={`transition-all duration-300 ${isScrolled ? 'h-10' : 'h-14'} w-auto`} />
                 </a>
 
                 <nav className="hidden md:flex items-center gap-8">
@@ -47,7 +61,10 @@ export default function Header() {
                             {link.name}
                         </a>
                     ))}
-                    <Button className={`bg-blue-600 text-white hover:bg-blue-500 rounded-full transition-all shadow-[0_0_15px_-5px_rgba(59,130,246,0.4)] ${isScrolled ? 'px-5 py-1.5 h-9 text-sm' : 'px-6 h-11'}`}>
+                    <Button
+                        onClick={openAuditModal}
+                        className={`bg-blue-600 text-white hover:bg-blue-500 rounded-full transition-all shadow-[0_0_15px_-5px_rgba(59,130,246,0.4)] ${isScrolled ? 'px-5 py-1.5 h-9 text-sm' : 'px-6 h-11'}`}
+                    >
                         Get Free Audit
                     </Button>
                 </nav>
@@ -81,7 +98,10 @@ export default function Header() {
                                     {link.name}
                                 </a>
                             ))}
-                            <Button className="bg-blue-600 text-white hover:bg-blue-500 w-full mt-4 py-6 text-lg rounded-xl">
+                            <Button
+                                onClick={openAuditModal}
+                                className="bg-blue-600 text-white hover:bg-blue-500 w-full mt-4 py-6 text-lg rounded-xl"
+                            >
                                 Get Free Audit
                             </Button>
                         </div>
