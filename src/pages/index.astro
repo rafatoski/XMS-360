@@ -17,6 +17,106 @@ const pageTitle = "XMS Ai | Ai-Powered 360° Marketing Ecosystem";
 const pageDescription =
   "Scale your brand with XMS Ai. We combine 20+ years of marketing expertise with enterprise-grade Ai tools to create a unified 360° growth ecosystem.";
 const ogImage = `${siteUrl}/og-image.png`;
+const lastModified = new Date().toISOString().split("T")[0];
+
+const jsonLdOrganization = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${siteUrl}/#organization`,
+  name: "XMS Ai",
+  alternateName: "Xperience Marketing Solutions",
+  url: siteUrl,
+  logo: `${siteUrl}/brand/XMS LOGO - BLACK BACKGROUND.webp`,
+  image: ogImage,
+  description:
+    "XMS Ai is an AI-powered 360° marketing ecosystem that combines 20+ years of expertise with enterprise-grade automation to diagnose, architect, deploy, and optimize brand growth.",
+  foundingDate: "2004",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Port Saint Lucie",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
+  areaServed: "US",
+  serviceType: [
+    "AI Marketing",
+    "Answer Engine Optimization",
+    "SEO",
+    "Content Marketing",
+    "Paid Media",
+    "Marketing Automation",
+  ],
+  sameAs: [
+    "https://www.tiktok.com/@xms_florida",
+    "https://www.instagram.com/xperiencemarketingsolutions/",
+    "https://www.youtube.com/user/xperiencemarketingso",
+    "https://x.com/XMS_Marketing",
+    "https://www.facebook.com/XperienceMarketingSolutions",
+    "https://www.linkedin.com/company/xperience-marketing-solutions",
+  ],
+};
+
+const jsonLdWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "XMS Ai",
+  description: pageDescription,
+  publisher: { "@id": `${siteUrl}/#organization` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${siteUrl}/?s={search_term_string}` },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const jsonLdFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How is XMS different from a traditional agency?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "XMS Ai is a hybrid Ai + Human ecosystem. Traditional agencies rely on manual labor and billable hours. XMS relies on intelligent automation and performance outcomes, building clients a proprietary growth engine rather than just executing tasks.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is AEO and why does it matter?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "AEO (Answer Engine Optimization) is the future of SEO. As users shift to AI search tools like ChatGPT, Perplexity, and Gemini, ranking for keywords is no longer enough. Brands must become the referenced authority cited by AI models.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do I need to replace my current marketing team?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. XMS Ai is an ecosystem accelerator. It partners with internal marketing teams to supercharge their capabilities with AI tools and high-level strategy, allowing them to focus on creative work and execution.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How fast can we see results with XMS Ai?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Diagnose and Architect phases typically take 2–3 weeks. Deployment begins immediately after. Most clients see significant efficiency gains within 30 days and measurable revenue impact within 60–90 days.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is XMS Ai suitable for B2B or B2C businesses?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Both. The XMS Ecosystem principles of Authority, Automation, and Analytics are universal. The specific channels and messaging are tailored to each business model, whether high-ticket B2B sales or high-volume B2C acquisition.",
+      },
+    },
+  ],
+};
 ---
 
 <!DOCTYPE html>
@@ -39,6 +139,10 @@ const ogImage = `${siteUrl}/og-image.png`;
     <title>{pageTitle}</title>
     <meta name="title" content={pageTitle} />
     <meta name="description" content={pageDescription} />
+    <meta name="keywords" content="AI marketing agency, answer engine optimization, AEO, AI-powered marketing, 360 marketing ecosystem, marketing automation, SEO, content marketing, Port Saint Lucie FL, XMS Ai" />
+    <meta name="author" content="XMS Ai" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="last-modified" content={lastModified} />
     <link rel="canonical" href={siteUrl} />
 
     {/* Open Graph / Facebook */}
@@ -58,6 +162,11 @@ const ogImage = `${siteUrl}/og-image.png`;
     {/* Preconnect to Google Fonts */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    {/* JSON-LD Structured Data — AEO */}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdWebSite)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdFAQ)} />
 
     {/* Plausible Analytics */}
     <script
