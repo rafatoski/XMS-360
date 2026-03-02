@@ -56,7 +56,7 @@ export default function Header() {
                         <a
                             key={link.name}
                             href={link.href}
-                            className={`text-sm font-medium transition-colors ${isScrolled ? 'text-white/90 hover:text-blue-400' : 'text-white/70 hover:text-blue-400'}`}
+                            className={`text-sm font-medium transition-colors hover:underline underline-offset-2 ${isScrolled ? 'text-white/90 hover:text-blue-400' : 'text-white/70 hover:text-blue-400'}`}
                         >
                             {link.name}
                         </a>

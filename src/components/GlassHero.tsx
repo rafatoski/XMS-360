@@ -108,18 +108,18 @@ function AuditModal() {
                 .xms-form-group{margin-bottom:1.5rem;text-align:left}
                 .xms-form-group label{display:block;margin-bottom:.5rem;font-weight:600;color:#333;font-size:.95rem}
                 .xms-form-group input{width:100%;padding:.9rem;font-size:1rem;border:2px solid #ddd;border-radius:8px;outline:none;transition:all .3s;box-sizing:border-box}
-                .xms-form-group input:focus{border-color:#4580ed;box-shadow:0 0 0 3px rgba(69,128,237,.1)}
-                .xms-form-group input.error{border-color:#f44336}
-                .xms-error-text{color:#f44336;font-size:.85rem;margin-top:.3rem;display:none}
+                .xms-form-group input:focus{border-color:#4580ed;box-shadow:0 0 0 3px rgba(69,128,237,.4)}
+                .xms-form-group input.error{border-color:#b91c1c}
+                .xms-error-text{color:#b91c1c;font-size:.85rem;margin-top:.3rem;display:none}
                 .xms-error-text.show{display:block}
                 .xms-modal-buttons{display:flex;gap:1rem;justify-content:flex-end;margin-top:2rem}
                 .xms-btn-cancel{padding:.8rem 1.5rem;background:#f5f5f5;border:none;border-radius:8px;cursor:pointer;font-weight:600;transition:all .3s;color:#333}
                 .xms-btn-cancel:hover{background:#e0e0e0}
-                .xms-btn-submit{padding:.8rem 1.5rem;background:#4580ed;color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;transition:all .3s}
-                .xms-btn-submit:hover{background:#3a6fd4}
+                .xms-btn-submit{padding:.8rem 1.5rem;background:#1d4ed8;color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;transition:all .3s}
+                .xms-btn-submit:hover{background:#2563eb}
                 .xms-btn-submit:disabled{background:#ccc;cursor:not-allowed}
                 .xms-success-message{display:none;padding:1rem;background:#4caf50;color:#fff;border-radius:8px;margin-bottom:1rem;text-align:center}
-                .xms-error-message{display:none;padding:1rem;background:#f44336;color:#fff;border-radius:8px;margin-bottom:1rem;text-align:center}
+                .xms-error-message{display:none;padding:1rem;background:#b91c1c;color:#fff;border-radius:8px;margin-bottom:1rem;text-align:center}
                 @keyframes xmsFadeIn{from{opacity:0}to{opacity:1}}
                 @keyframes xmsSlideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
                 @media(max-width:768px){.xms-modal{padding:1.5rem}}
