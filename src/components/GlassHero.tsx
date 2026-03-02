@@ -213,7 +213,7 @@ export default function GlassHero() {
 
                         {/* Main Headline */}
                         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight leading-[1.1] mb-6">
-                            <span className="bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                            <span className="bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient [filter:drop-shadow(0_0_18px_rgba(96,165,250,0.55))]">
                                 Your Competitors Are Still Doing It Manually.
                             </span>
                             <br />
